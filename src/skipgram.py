@@ -147,11 +147,12 @@ def train_model(model, corpus, unigram_table, epochs, window_size,initial_lr):
                 
                 
                 if pairs_processed % 100000 == 0:
-                    print(f"Epoch {epoch+1} | Pairs: {pairs_processed} | LR: {learning_rate:.5f}")
+                    print(f"Epoch {epoch+1} | Pairs: {pairs_processed} | LR: {learning_rate:.5f} | Loss: {(total_loss/pairs_processed):.5f}")
                 
          
-         
-            learning_rate *= 0.9      
+
+            if epoch % 3 == 0:
+                learning_rate *= 0.9      
         
         print(f"End of epoch{epoch + 1}.New LR: {learning_rate:5f}")
         
