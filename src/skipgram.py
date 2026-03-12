@@ -146,7 +146,7 @@ def train_model(model, corpus, unigram_table, epochs, window_size,initial_lr):
                 pairs_processed +=1
                 
                 
-                if pairs_processed % 100000 == 0:
+                if pairs_processed % 10000 == 0:
                     print(f"Epoch {epoch+1} | Pairs: {pairs_processed} | LR: {learning_rate:.5f} | Loss: {(total_loss/pairs_processed):.5f}")
                 
          
@@ -157,7 +157,7 @@ def train_model(model, corpus, unigram_table, epochs, window_size,initial_lr):
         print(f"End of epoch{epoch + 1}.New LR: {learning_rate:5f}")
         
         
-    save_embeddings(model.W1,"./data/embeddings.npy")
+    save_embeddings(model.W1,"./../data/embeddings.npy")
     print("Training complete. Embeddings saved!")
     
     
